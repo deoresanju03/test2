@@ -12,3 +12,4 @@ expect "root@"
 send "cd my_python \r"
 interact
 
+hello
