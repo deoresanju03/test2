@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+set timeout -1
+set args [lrange $argv 1 end]
+spawn ssh -o StrictHostKeyChecking=no root@$argv
+expect "password" {
+    send "wifi123#@shunya\r"}
+expect "root@"
+send "pkill -u mayurd"
+interact

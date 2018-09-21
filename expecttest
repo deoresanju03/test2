@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+set timeout -1
+set login "root"
+set addr "172.31.254.2"
+
+spawn ssh $login@$addr
+
+expect "$login@$addr\'s password:"
+send "wifi123#@shunya\r"
+expect "~" ; # put here string from your server prompt
+send "pkill -u mayurd\r"
+interact

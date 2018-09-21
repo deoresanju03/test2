@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+set timeout -1
+set args [lrange $argv 1 end]
+spawn ssh -o StrictHostKeyChecking=no pi@$argv
+expect "password:" {
+    send "wifi123#\r"}
+expect "pi@"
+send "sudo -s\r"
+expect "password"
+send "wifi123#\r"
+expect "root@"
+send "cd my_python \r"
+interact
+
